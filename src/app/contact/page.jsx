@@ -13,7 +13,7 @@ const Contact = () => {
           <Image
             src="/contact.png"
             fill={true}
-            className={styles.img}
+            className={styles.image}
             alt="contact us"
           />
         </div>
