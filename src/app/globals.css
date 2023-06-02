@@ -18,7 +18,7 @@ a{
 }
 
 .container {
-  background-color: rebeccapurple;
+  background-color: #111;
   max-width: 1366px;
   min-height: 100vh;
   margin:  0 auto;
