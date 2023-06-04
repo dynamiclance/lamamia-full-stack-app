@@ -13,7 +13,7 @@ const Blog = () => {
           </div>
         </Link>
         <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
+          <Link href="/blog/testId"><h1 className={styles.title}>Test</h1></Link>
           <p className={styles.des}>Description</p>
         </div>
       </div>
@@ -25,7 +25,7 @@ const Blog = () => {
           </div>
         </Link>
         <div className={styles.content}>
-          <h1 className={styles.title}>Test</h1>
+        <Link href="/blog/testId"><h1 className={styles.title}>Test</h1></Link> 
           <p className={styles.des}>Description</p>
         </div>
       </div>
