@@ -1,18 +1,35 @@
 import React from 'react';
 import Image from 'next/image';
+import {notFound} from "next/navigation";
 
 
 import styles from "./page.module.css";
 
+async function getData(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  
+  if (!res.ok) {
+  //  return "not found";
+   return notFound();
+}
 
-const SingleBlog = () => {
+return res.json();
+
+}
+
+const SingleBlog = async ({params}) => {
+
+  const post = await getData(params.id);
+  console.log(post)
+
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
-          <h1 className={styles.title}>Lorem ipsum dolor sit, amet consectetur adipisicing.</h1>
+          <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.desc}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure maxime aperiam tenetur voluptatem omnis eos vel ipsum doloribus eum quasi, perspiciatis velit nesciunt doloremque nisi beatae aliquam! Odio distinctio unde nostrum iure praesentium error. Rerum deleniti consequuntur accusamus adipisci, sapiente quae. Voluptatibus!
+          {post.body}
           </p>
           <div className={styles.author}>
             <Image
@@ -36,7 +53,7 @@ const SingleBlog = () => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti nihil modi architecto placeat aut! Itaque fugit sed tempora autem optio! Molestias repellat corrupti fugit quaerat odio omnis facere dolore necessitatibus voluptate nihil, voluptates ratione esse quasi velit quia perferendis maxime!
+        {post.body}
         </p>
       </div>
     </div>
