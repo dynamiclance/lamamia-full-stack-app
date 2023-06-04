@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import styles from "./page.module.css";
 
-const Category = ({slug}) => {
+const Category = ({params}) => {
   return (
-    <div>React {slug}</div>
+    <div className={styles.container}>
+      <h1>{params.category}</h1>
+    </div>
   )
 }
 
