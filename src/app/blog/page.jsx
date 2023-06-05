@@ -4,6 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
+export const metadata = {
+  title: 'Blog Page',
+  description: 'All Blog Post Together',
+};
+ 
+
+
 async function getData() {
   const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
   
