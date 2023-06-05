@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 
 async function getData() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', { cache: 'no-store' });
+  const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
   
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -24,14 +24,14 @@ const Blog = async () => {
       {
         posts.map((post) => (
           <div className={styles.blogContainer} key={post.id}>
-          <Link href={'/blog/' + post.id}>
+          <Link href={'/blog/' + post._id}>
             <div className={styles.imgContainer}>
-              <Image src="https://images.pexels.com/photos/2163950/pexels-photo-2163950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width={400} height={200} className={styles.img} alt='blog img' />
+              <Image src={post.image} width={400} height={200} className={styles.img} alt='blog img' />
             </div>
           </Link>
           <div className={styles.content}>
-            <Link href={'/blog/' + post.id}><h1 className={styles.title}>{post.title}</h1></Link>
-            <p className={styles.des}>{post.body}</p>
+            <Link href={'/blog/' + post._id}><h1 className={styles.title}>{post.title}</h1></Link>
+            <p className={styles.des}>{post.desc}</p>
           </div>
         </div>
         ))

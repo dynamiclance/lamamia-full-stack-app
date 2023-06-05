@@ -6,7 +6,7 @@ import {notFound} from "next/navigation";
 import styles from "./page.module.css";
 
 async function getData(id) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`);
   
   if (!res.ok) {
   //  return "not found";
@@ -20,16 +20,14 @@ return res.json();
 const SingleBlog = async ({params}) => {
 
   const post = await getData(params.id);
-  console.log(post)
-
-
+ 
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.desc}>
-          {post.body}
+          {post.desc}
           </p>
           <div className={styles.author}>
             <Image
@@ -39,13 +37,13 @@ const SingleBlog = async ({params}) => {
               height={40}
               className={styles.avatar}
             />
-            <span className={styles.username}>John Cerlin</span>
+            <span className={styles.username}>{post.username}</span>
           </div>
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src="https://images.pexels.com/photos/2163950/pexels-photo-2163950.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            alt=""
+            src={post.image}
+            alt="post-img"
             fill={true}
             className={styles.image}
           />
@@ -53,7 +51,7 @@ const SingleBlog = async ({params}) => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-        {post.body}
+        {post.content}
         </p>
       </div>
     </div>
