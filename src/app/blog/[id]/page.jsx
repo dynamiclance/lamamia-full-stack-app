@@ -50,7 +50,7 @@ const SingleBlog = async ({params}) => {
         </div>
         <div className={styles.imageContainer}>
           <Image
-            src={post.image}
+            src={post.img}
             alt="post-img"
             fill={true}
             className={styles.image}

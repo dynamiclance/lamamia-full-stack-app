@@ -33,7 +33,7 @@ const Blog = async () => {
           <div className={styles.blogContainer} key={post.id}>
           <Link href={'/blog/' + post._id}>
             <div className={styles.imgContainer}>
-              <Image src={post.image} width={400} height={200} className={styles.img} alt='blog img' />
+              <Image src={post.img} width={400} height={200} className={styles.img} alt='blog img' />
             </div>
           </Link>
           <div className={styles.content}>
